@@ -20,7 +20,7 @@ model User {
   emailVerified DateTime? @map("email_verified")
   image         String?
   password      String?
-  role          String?
+  role          String?   @default("user")
   createdAt     DateTime  @default(now()) @map(name: "created_at")
   updatedAt     DateTime  @updatedAt @map(name: "updated_at")
   accounts      Account[]
@@ -52,7 +52,7 @@ model Account {
 model Product {
   id          String  @id @default(cuid())
   userId      String  @map("user_id")
-  name        String
+  name        String  @unique
   description String?
   stock       Int
 

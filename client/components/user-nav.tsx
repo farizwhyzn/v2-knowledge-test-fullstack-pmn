@@ -16,7 +16,7 @@ import {
   DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { deleteCookie } from 'cookies-next';
+import { deleteCookie, getCookie } from "cookies-next";
 import { useRouter } from "next/navigation";
 
 export function UserNav() {
@@ -40,31 +40,29 @@ export function UserNav() {
       <DropdownMenuContent className="w-56" align="end" forceMount>
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
-            <p className="text-sm font-medium leading-none">test</p>
+            <p className="text-sm font-medium leading-none">{getCookie('name')}</p>
             <p className="text-xs leading-none text-muted-foreground">
-              test
+              {getCookie('email')}
             </p>
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem>
-            Profile
+          <DropdownMenuItem onClick={() => router.push('/')}>
+            Home
             <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
           </DropdownMenuItem>
-          <DropdownMenuItem>
-            Home
+          <DropdownMenuItem onClick={() => router.push('/products')}>
+            Products
             <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
           </DropdownMenuItem>
-          <DropdownMenuItem>Products</DropdownMenuItem>
+          <DropdownMenuItem onClick={() => router.push('/profile')}>Profile</DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <button onClick={logOut}>
-          <DropdownMenuItem>
+          <DropdownMenuItem onClick={logOut}>
             Log Out
             <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
           </DropdownMenuItem>
-        </button>
       </DropdownMenuContent>
     </DropdownMenu>
   )

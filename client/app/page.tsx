@@ -26,12 +26,13 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { MoreHorizontal } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useRouter } from "next/navigation";
 
 export default function Home() {
-
+  const router = useRouter();
   const [users, setUsers] = useState([])
-
   const url = process.env.API_URL || "http://localhost:8000";
+
   useEffect(() => {
     const token = getCookie('accessToken');
     if (token) {
@@ -64,7 +65,7 @@ export default function Home() {
       <div className="hidden h-full flex-1 flex-col space-y-8 p-8 md:flex">
         <div className="flex items-center justify-between space-y-2">
           <div>
-            <h2 className="text-2xl font-bold tracking-tight">Welcome back, {getCookie('name')}!</h2>
+            <h2 className="text-2xl font-bold tracking-tight">Welcome back!</h2>
             <p className="text-muted-foreground">
               Here&apos;s a list of users for you!
             </p>
@@ -106,20 +107,13 @@ export default function Home() {
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
                       <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                      <button onClick={() => deleteUser(user.id)}>
-                        <DropdownMenuItem>Delete</DropdownMenuItem>
-                      </button>
+                        <DropdownMenuItem onClick={() => deleteUser(user.id)}>Delete</DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </TableCell>
               </TableRow>
             ))}
           </TableBody>
-          <TableFooter>
-            <TableRow>
-              <TableCell colSpan={3}>Total of {users.length} user(s) rendered</TableCell>
-            </TableRow>
-          </TableFooter>
         </Table>
       </div>
     </>
