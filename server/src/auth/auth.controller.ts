@@ -4,6 +4,7 @@ import { UserService } from "../user/user.service";
 import { LoginDto } from "./dto/auth.dto";
 import { AuthService } from "./auth.service";
 import { RefreshJwtGuard } from "./guards/refresh.guard";
+import { ApiBody } from "@nestjs/swagger";
 
 @Controller('auth')
 export class AuthController {
@@ -12,11 +13,13 @@ export class AuthController {
     private authService: AuthService
   ) {}
 
+  @ApiBody({ type: CreateUserDto })
   @Post('register')
   async register(@Body() dto:CreateUserDto) {
     return await this.userService.create(dto)
   }
 
+  @ApiBody({ type: LoginDto })
   @Post('login')
   async login(@Body() dto:LoginDto) {
     return await this.authService.login(dto);
