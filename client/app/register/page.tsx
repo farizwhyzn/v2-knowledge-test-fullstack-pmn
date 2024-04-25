@@ -28,12 +28,12 @@ export default function Register() {
   })
 
   const url = process.env.API_URL || "http://localhost:8000";
-  console.log(url)
-  console.log(process.env)
+
   const register = async (e: any) => {
     e.preventDefault()
     axios.post(`${url}/auth/register`, data)
       .then(() => toast.success("Account created successfully"))
+      .then(() => router.push("/login"))
       .catch(() => toast.error("An error occurred while creating your account"))
   }
 
@@ -88,7 +88,7 @@ export default function Register() {
             </div>
             <div className="mt-4 text-center text-sm">
               Already have an account?{" "}
-              <Link href="#" className="underline">
+              <Link href="/login" className="underline">
                 Sign in
               </Link>
             </div>
