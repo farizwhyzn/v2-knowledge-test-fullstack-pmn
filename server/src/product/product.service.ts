@@ -8,7 +8,7 @@ import { CreateProductDto, UpdateProductDto } from "./dto/product.dto";
 export class ProductService {
   constructor(private prisma: PrismaService) {}
 
-  async create(dto: CreateProductDto) {
+  async createProduct(dto: CreateProductDto) {
     const exist = await this.prisma.product.findUnique({
       where: {
         name: dto.name,
@@ -21,7 +21,7 @@ export class ProductService {
       data: {
         name: dto.name,
         description: dto.description,
-        stock: parseInt(dto.stock),
+        stock: dto.stock,
       },
     });
   }
@@ -41,7 +41,7 @@ export class ProductService {
       },
       data: {
         description: dto.description,
-        stock: parseInt(dto.stock),
+        stock: dto.stock,
       },
     });
   }
@@ -54,4 +54,7 @@ export class ProductService {
     });
   }
 
+  async getProducts() {
+    return await this.prisma.product.findMany();
+  }
 }

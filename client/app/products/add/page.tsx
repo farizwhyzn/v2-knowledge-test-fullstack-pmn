@@ -38,19 +38,25 @@ import axios from "axios";
 import {toast} from "sonner";
 import { getCookie } from "cookies-next";
 import { UserNav } from "@/components/user-nav";
+import { useRouter } from "next/navigation";
 
 export default function AddProduct() {
+  const router = useRouter();
   const [data, setData] = useState({
     name: "",
     description: "",
-    stock: "",
+    stock: 0,
   })
 
   const url = process.env.API_URL || "http://localhost:8000";
   const addProduct = async (e) => {
     e.preventDefault()
     axios.post(`${url}/products`, data)
-      .then(() => toast.success("Product created successfully"))
+      .then(() => {
+        toast.success("Product created successfully")
+        router.push("/products")
+      }
+      )
       .catch(() => toast.error("An error occurred while creating your product"))
   }
 
@@ -62,13 +68,13 @@ export default function AddProduct() {
             <BreadcrumbList>
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="#">Dashboard</Link>
+                  <Link href="/">Dashboard</Link>
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="#">Products</Link>
+                  <Link href="/products">Products</Link>
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
@@ -148,9 +154,9 @@ export default function AddProduct() {
                           <Input
                             id="stock"
                             className="w-full"
-                            placeholder="23000"
+                            placeholder="0"
                             value={data.stock}
-                            onChange={(e) => setData({...data, stock: e.target.value})}
+                            onChange={(e) => setData({...data, stock: Number(e.target.value)})}
                           />
                         </div>
                       </div>

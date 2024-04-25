@@ -1,5 +1,5 @@
-import { IsEmail, IsString } from "class-validator";
-import { ApiProperty, OmitType } from "@nestjs/swagger";
+import { IsEmail, IsNumber, IsString } from "class-validator";
+import { ApiProperty, OmitType, PartialType } from "@nestjs/swagger";
 
 
 export class CreateProductDto{
@@ -13,8 +13,8 @@ export class CreateProductDto{
   description: string;
 
   @ApiProperty()
-  @IsString()
-  stock: string;
+  @IsNumber()
+  stock: number;
 }
 
-export class UpdateProductDto extends OmitType(CreateProductDto, ["name"] as const) {}
+export class UpdateProductDto extends PartialType(CreateProductDto) {}
