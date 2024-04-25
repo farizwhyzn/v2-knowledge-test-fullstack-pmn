@@ -31,6 +31,8 @@ Use for demo
 
 Credentials: [Enter password with first name of the company in lowercase ->> p***** m** nusantara](https://paste.quest/?4b1173aabf1c251e#76eZ7s9Nv6cZJN9Vb7ke5J8kq2n6RPEB5z4ctpxHmHX3)
 
+env: [Enter same password as above](https://paste.quest/?938d1c726242ca8d#3EnZ1PH5vEMpLjepJ9MSvWuXMTuAeYuUeqj88LEBEhV2)
+
 API Docs: [http://localhost:8000/api](http://localhost:8000/api)
 
 ##### Feel free to reach me out if you have any trouble, I'm not going anywhere! 😊
