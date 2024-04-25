@@ -24,7 +24,6 @@ model User {
   createdAt     DateTime  @default(now()) @map(name: "created_at")
   updatedAt     DateTime  @updatedAt @map(name: "updated_at")
   accounts      Account[]
-  products      Product[]
 
   @@map(name: "users")
 }
@@ -51,12 +50,9 @@ model Account {
 
 model Product {
   id          String  @id @default(cuid())
-  userId      String  @map("user_id")
   name        String  @unique
   description String?
-  stock       Int
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  stock       Int     @default(0)
 
   @@map("products")
 }
