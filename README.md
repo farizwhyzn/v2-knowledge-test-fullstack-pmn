@@ -2,7 +2,7 @@
 
 This is a project made for Knowledge Test of Fullstack Dev at PT PMN
 
-###### Note: This project is a continuation from [this](https://github.com/farizwhyzn/knowledge-test-fullstack-pmn), after embarrassingly misread the required backend nest as next with little time left.
+###### Note: This project is a continuation from [this](https://github.com/farizwhyzn/knowledge-test-fullstack-pmn), after embarrassingly misread the required backend nest as next with little time left. Silly mistakes 😫
 
 ## Installation
 
