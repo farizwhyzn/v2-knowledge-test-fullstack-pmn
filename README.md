@@ -27,7 +27,7 @@ After cloning the repo, you need to start both client and server with:
 
 Use for demo
 
-Credentials: [Enter password with first name of the company in lowercase](https://paste.quest/?4b1173aabf1c251e#76eZ7s9Nv6cZJN9Vb7ke5J8kq2n6RPEB5z4ctpxHmHX3)
+Credentials: [Enter password with first name of the company in lowercase ->> p***** m** nusantara](https://paste.quest/?4b1173aabf1c251e#76eZ7s9Nv6cZJN9Vb7ke5J8kq2n6RPEB5z4ctpxHmHX3)
 
 API Docs: [http://localhost:8000/api](http://localhost:8000/api)
 
