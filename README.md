@@ -14,6 +14,7 @@ After cloning the repo, you need to start both client and server with:
 >> cd <your-dir>\v2-knowledge-test-fullstack-pmn\client
 #example: cd C:\Users\fariz\WebstormProjects\v2-knowledge-test-fullstack-pmn\client
 
+>> npm install
 >> npm run dev
 ```
 
@@ -22,6 +23,8 @@ After cloning the repo, you need to start both client and server with:
 >> cd <your-dir>\v2-knowledge-test-fullstack-pmn\server
 #example: cd C:\Users\fariz\WebstormProjects\v2-knowledge-test-fullstack-pmn\server
 
+create .env file at current directory and paste the content from the provided link below
+>> npm install
 >> nest start
 ```
 
