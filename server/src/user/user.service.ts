@@ -42,4 +42,16 @@ export class UserService {
       },
     });
   }
+
+  async getAllUsers() {
+    return await this.prisma.user.findMany();
+  }
+
+  async deleteUser(id: string) {
+    return await this.prisma.user.delete({
+      where: {
+        id: id,
+      },
+    });
+  }
 }
